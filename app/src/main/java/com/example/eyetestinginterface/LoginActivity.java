@@ -39,6 +39,16 @@ public class LoginActivity extends AppCompatActivity {
     FirebaseAuth auth;
 
     @Override
+    public void onStart() {
+        super.onStart();
+        FirebaseUser currentUser = auth.getCurrentUser();
+
+        if (currentUser != null) {
+            startActivity(new Intent(getApplicationContext(), Home.class));
+        }
+    }
+
+    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -59,24 +69,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-
-        try {
-            Intent intent = getIntent();
-
-            String email_text = intent.getStringExtra("email");
-            String password_text = intent.getStringExtra("password");
-
-            email.setText(email_text);
-            password.setText(password_text);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
@@ -87,7 +79,7 @@ public class LoginActivity extends AppCompatActivity {
         signup_link = findViewById(R.id.signup_link);
 
         login_button = findViewById(R.id.login_button);
-
+        auth = FirebaseAuth.getInstance();
 
         // Configure Google Sign In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -137,25 +129,6 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
-
-
-    private void register(String username, String email, String password) {
-
-        auth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            FirebaseUser firebaseUser = auth.getCurrentUser();
-                            assert firebaseUser != null;
-                            String userid = firebaseUser.getUid();
-
-                        } else {
-                            Toast.makeText(getApplicationContext(), "Try a different email and password", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
     }
 
     private void signIn() {

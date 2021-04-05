@@ -36,6 +36,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     Button signup_button;
     FirebaseAuth auth;
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -55,23 +56,7 @@ public class SignUpActivity extends AppCompatActivity {
             }
         }
     }
-    @Override
-    protected void onStart() {
-        super.onStart();
 
-        try {
-            Intent intent = getIntent();
-
-            String email_text = intent.getStringExtra("email");
-            String password_text = intent.getStringExtra("password");
-
-            email.setText(email_text);
-            password.setText(password_text);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,7 +78,6 @@ public class SignUpActivity extends AppCompatActivity {
                 .build();
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-
 
         Intent intent = getIntent();
 
@@ -132,34 +116,11 @@ public class SignUpActivity extends AppCompatActivity {
 
                 intent.putExtras(bundle);
 
-
                 startActivity(intent);
             }
         });
     }
 
-
-    private void register(String username, String email, String password) {
-
-        auth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            FirebaseUser firebaseUser = auth.getCurrentUser();
-                            assert firebaseUser != null;
-                            String userid = firebaseUser.getUid();
-
-                            Intent intent = new Intent(getApplicationContext(), Home.class);
-                            startActivity(intent);
-                            finish();
-
-                        } else {
-                            Toast.makeText(getApplicationContext(), "Try a different email and password", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-    }
 
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
@@ -179,7 +140,6 @@ public class SignUpActivity extends AppCompatActivity {
 
                             Toast.makeText(getApplicationContext(), "Clicked!", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), Home.class));
-
 
                         } else {
                             // If sign in fails, display a message to the user.
