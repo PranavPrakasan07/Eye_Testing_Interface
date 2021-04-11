@@ -6,9 +6,68 @@
     tools:context=".ProfileFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Profile" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="16dp"
+        android:orientation="vertical">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/profile_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="Profile"
+        android:fontFamily="@font/open_sans_semibold"
+        android:textAllCaps="true"
+        android:textAlignment="gravity"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="center_horizontal"
+        android:textSize="36sp"
+        android:textColor="#121212"/>
+
+    <ImageView
+        android:id="@+id/profile_photo"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:scaleType="fitCenter"
+        android:background="@drawable/round_bg"
+        android:outlineProvider="background"
+        android:layout_gravity="center_horizontal"
+
+        tools:src="@tools:sample/avatars" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="Name"
+        android:layout_margin="8dp"
+        android:textAllCaps="false"
+        android:textAlignment="gravity"
+        android:layout_gravity="center_horizontal"
+        android:textSize="24sp"
+        android:textColor="#121212"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="Email"
+        android:textAllCaps="false"
+        android:textAlignment="gravity"
+        android:gravity="center_horizontal|center_vertical"
+        android:layout_gravity="center_horizontal"
+        android:textSize="18sp"
+        android:textColor="#121212"/>
+    </LinearLayout>
 
 </FrameLayout>

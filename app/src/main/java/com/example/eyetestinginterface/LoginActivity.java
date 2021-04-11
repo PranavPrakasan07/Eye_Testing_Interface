@@ -36,7 +36,7 @@ public class LoginActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 1;
 
     GoogleSignInClient mGoogleSignInClient;
-    FirebaseAuth auth;
+    static FirebaseAuth auth;
 
     @Override
     public void onStart() {
