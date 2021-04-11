@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/nav_find_doctor"
+        android:icon="@drawable/ic_baseline_location"
+        android:title="Find Doctor"
+        app:cnb_iconColor="#73D69B"/>
+
+    <item
+        android:id="@+id/nav_test"
+        android:icon="@drawable/ic_baseline_test"
+        android:title="Test"
+        app:cnb_iconColor="#00B2FF"/>
+
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/ic_baseline_person"
+        android:title="Profile"
+        app:cnb_iconColor="#FFC700"/>
+
+</menu>

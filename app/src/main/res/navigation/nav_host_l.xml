@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_host_l"
+    app:startDestination="@id/testFragment">
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.eyetestinginterface.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/testFragment"
+        android:name="com.example.eyetestinginterface.TestFragment"
+        android:label="fragment_test"
+        tools:layout="@layout/fragment_test" />
+
+    <fragment
+        android:id="@+id/findDoctorFragment"
+        android:name="com.example.eyetestinginterface.FindDoctorFragment"
+        android:label="fragment_find_doctor"
+        tools:layout="@layout/fragment_find_doctor" />
+
+</navigation>
