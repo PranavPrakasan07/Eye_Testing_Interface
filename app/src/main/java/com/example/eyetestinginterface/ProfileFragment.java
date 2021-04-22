@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,7 +40,8 @@ public class ProfileFragment extends Fragment {
     TextView logout, username, email;
     ImageView profile_photo;
 
-    LinearLayout animation_layout, profile_layout;
+    LinearLayout animation_layout;
+    ScrollView profile_layout;
     RelativeLayout profile_fragment;
 
     public ProfileFragment() {
