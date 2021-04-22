@@ -1,14 +1,18 @@
 package com.example.eyetestinginterface;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +38,9 @@ public class ProfileFragment extends Fragment {
 
     TextView logout, username, email;
     ImageView profile_photo;
+
+    LinearLayout animation_layout, profile_layout;
+    RelativeLayout profile_fragment;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -77,6 +84,11 @@ public class ProfileFragment extends Fragment {
         email = view.findViewById(R.id.email);
         profile_photo = view.findViewById(R.id.profile_photo);
 
+        profile_layout = view.findViewById(R.id.profile_layout);
+        animation_layout = view.findViewById(R.id.animation_layout);
+
+        profile_fragment = view.findViewById(R.id.profile_fragment);
+
         username.setText(Objects.requireNonNull(LoginActivity.auth.getCurrentUser()).getDisplayName());
         email.setText(LoginActivity.auth.getCurrentUser().getEmail());
 
@@ -85,15 +97,31 @@ public class ProfileFragment extends Fragment {
         Picasso.get().load(LoginActivity.auth.getCurrentUser().getPhotoUrl())
                 .into(profile_photo);
 
-//        logout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
+        profile_photo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                profile_fragment.setBackgroundColor(Color.parseColor("#121212"));
+
+                profile_layout.setVisibility(View.GONE);
+                animation_layout.setVisibility(View.VISIBLE);
+
+                Handler handler = new Handler();
+
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        startActivity(new Intent(getContext(), LoginActivity.class));
+                    }
+                }, 2000);
+
 //                LoginActivity.auth.signOut();
 //                Toast.makeText(getActivity(), "Clicked", Toast.LENGTH_SHORT).show();
 //                startActivity(new Intent(getContext(), LoginActivity.class));
-//            }
-//        });
+            }
+        });
 
         // Inflate the layout for this fragment
-        return view;    }
+        return view;
+    }
 }
