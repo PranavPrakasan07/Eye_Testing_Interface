@@ -33,7 +33,7 @@ public class Home extends AppCompatActivity {
                 Fragment selectedFragment = null;
 
                 if (chipNavigationBar.getSelectedItemId() == R.id.nav_find_doctor) {
-                    selectedFragment = new FindDoctorFragment();
+                    selectedFragment = new MapsFragment();
                 }
 
                 if (chipNavigationBar.getSelectedItemId() == R.id.nav_test) {

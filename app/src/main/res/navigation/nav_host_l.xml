@@ -19,8 +19,8 @@
 
     <fragment
         android:id="@+id/findDoctorFragment"
-        android:name="com.example.eyetestinginterface.FindDoctorFragment"
+        android:name="com.example.eyetestinginterface.MapsFragment"
         android:label="fragment_find_doctor"
-        tools:layout="@layout/fragment_find_doctor" />
+        tools:layout="@layout/fragment_maps" />
 
 </navigation>
