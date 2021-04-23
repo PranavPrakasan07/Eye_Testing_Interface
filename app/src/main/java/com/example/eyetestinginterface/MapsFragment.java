@@ -45,7 +45,6 @@ public class MapsFragment extends Fragment {
                     googleMap.addMarker(markerOptions);
                 }
             });
-
         }
 
     };

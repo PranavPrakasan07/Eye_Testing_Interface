@@ -15,6 +15,7 @@
 
         <item name="android:navigationBarColor">#212121</item>
         <item name="fontFamily">@font/open_sans</item>
+        <item name="android:autofilledHighlight">@color/autofill</item>
 
     </style>
 </resources>
