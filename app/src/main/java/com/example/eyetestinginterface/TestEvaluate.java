@@ -28,9 +28,10 @@ public class TestEvaluate extends AppCompatActivity {
     private final int RecordAudioRequestCode = 1;
     EditText speech_to_text;
     ImageView mic_button;
+    boolean mic_on = false;
 
     private SpeechRecognizer speechRecognizer;
-    @SuppressLint("ClickableViewAccessibility")
+//    @SuppressLint("ClickableViewAccessibility")
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,9 +57,11 @@ public class TestEvaluate extends AppCompatActivity {
         speechRecognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
 
         speechRecognizer.setRecognitionListener(new RecognitionListener() {
+
             @Override
             public void onReadyForSpeech(Bundle bundle) {
-
+                speech_to_text.setText("");
+                speech_to_text.setHint("Listening...");
             }
 
             @Override
@@ -105,17 +108,16 @@ public class TestEvaluate extends AppCompatActivity {
             }
         });
 
-        mic_button.setOnTouchListener(new View.OnTouchListener() {
+        mic_button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                    speechRecognizer.stopListening();
-                }
-                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
+            public void onClick(View v) {
+                if(!mic_on){
                     mic_button.setImageResource(R.drawable.ic_baseline_mic_none_24);
                     speechRecognizer.startListening(speechRecognizerIntent);
+                }else{
+                    speechRecognizer.stopListening();
+                    mic_button.setImageResource(R.drawable.ic_baseline_mic_none_24);
                 }
-                return false;
             }
         });
 
