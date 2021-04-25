@@ -73,7 +73,7 @@ public class TestFragment extends Fragment {
         TextView take_test = view.findViewById(R.id.take_test_button);
         FluidSlider slider = view.findViewById(R.id.slider);
 
-        final String[] distance = {""};
+        final String[] distance = {"20"};
 
         slider.setPositionListener(pos -> {
             final String value = String.valueOf((int) (pos * 100));
