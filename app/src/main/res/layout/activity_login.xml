@@ -46,6 +46,7 @@
         android:layout_marginTop="32dp"
         android:textColorHint="#80212121"
         app:endIconTint="#80212121"
+        app:hintTextColor="#80212121"
         android:layout_marginEnd="32dp"
         android:hint="Username"
         app:endIconMode="clear_text"

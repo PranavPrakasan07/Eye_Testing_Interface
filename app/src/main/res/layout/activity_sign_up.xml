@@ -63,6 +63,7 @@
         android:layout_marginEnd="32dp"
         android:layout_marginTop="16dp"
         android:hint="Password"
+        app:hintTextColor="#80212121"
         android:textColorHint="#80212121"
         app:endIconMode="password_toggle"
         app:endIconTint="#80212121"

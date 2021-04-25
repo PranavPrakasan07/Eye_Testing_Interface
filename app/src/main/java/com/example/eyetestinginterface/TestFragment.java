@@ -1,12 +1,20 @@
 package com.example.eyetestinginterface;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.ramotion.fluidslider.FluidSlider;
+
+import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,6 +67,39 @@ public class TestFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_test, container, false);
+        View view = inflater.inflate(R.layout.fragment_test, container, false);
+
+        TextView distance_text = view.findViewById(R.id.distance_text);
+        TextView take_test = view.findViewById(R.id.take_test_button);
+        FluidSlider slider = view.findViewById(R.id.slider);
+
+        final String[] distance = {""};
+
+        slider.setPositionListener(pos -> {
+            final String value = String.valueOf((int) (pos * 100));
+            slider.setBubbleText(value);
+            distance_text.setText(value);
+
+            distance[0] = value;
+
+            return Unit.INSTANCE;
+        });
+
+        take_test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Bundle bundle = new Bundle();
+                Intent intent = new Intent(getActivity(), TestEvaluate.class);
+
+                bundle.putString("distance", distance[0]);
+
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
+
+
+        return view;
     }
 }
