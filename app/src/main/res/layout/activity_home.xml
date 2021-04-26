@@ -13,9 +13,9 @@
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@id/bottom_nav_bar"
         android:layout_alignParentTop="true"
         android:layout_margin="0dp"
-        android:layout_above="@id/bottom_nav_bar"
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav_host_l" />
 
@@ -25,8 +25,8 @@
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom"
-        android:fadingEdge="horizontal"
         android:background="#212121"
+        android:fadingEdge="horizontal"
         app:cnb_menuResource="@menu/nav_menu" />
 
 </RelativeLayout>

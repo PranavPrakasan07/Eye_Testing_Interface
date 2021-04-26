@@ -1,11 +1,10 @@
 package com.example.eyetestinginterface;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 

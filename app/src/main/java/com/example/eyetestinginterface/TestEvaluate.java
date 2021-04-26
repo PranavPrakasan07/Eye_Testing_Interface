@@ -1,12 +1,6 @@
 package com.example.eyetestinginterface;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
 import android.Manifest;
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -14,21 +8,40 @@ import android.os.Bundle;
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
-import android.view.MotionEvent;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Locale;
+import java.util.Set;
 
 public class TestEvaluate extends AppCompatActivity {
 
     private final int RecordAudioRequestCode = 1;
+    TextView question_text;
     EditText speech_to_text;
-    ImageView mic_button;
+    ImageView mic_button, next_button;
     boolean mic_on = false;
+
+    String question = "";
+
+    int question_number = 0;
+
+    String[] question_array = new String[]{"E", "F P", "T O Z", "L P E D", "P E C F D", "E D F C Z P", "F E L O P Z D", "D E F P O T E C", "L E F O D P C T"};
+    int[] font_size_array = new int[]{152, 130, 108, 87, 65, 43, 33, 21, 15, 9};
+    int[] distance_array = new int[]{ 70, 60, 50, 40, 30, 20, 15, 10, 7, 4};
+
 
     private SpeechRecognizer speechRecognizer;
 //    @SuppressLint("ClickableViewAccessibility")
@@ -48,8 +61,10 @@ public class TestEvaluate extends AppCompatActivity {
 
         Toast.makeText(this, distance, Toast.LENGTH_SHORT).show();
 
+        question_text = findViewById(R.id.text);
         speech_to_text = findViewById(R.id.speech_to_text);
         mic_button = findViewById(R.id.mic_button);
+        next_button = findViewById(R.id.next_button);
 
         speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this);
         final Intent speechRecognizerIntent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
@@ -94,7 +109,15 @@ public class TestEvaluate extends AppCompatActivity {
             public void onResults(Bundle bundle) {
                 mic_button.setImageResource(R.drawable.ic_baseline_mic_off_24);
                 ArrayList<String> data = bundle.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
-                speech_to_text.setText(data.get(0));
+
+                String response = data.get(0).toUpperCase();
+
+                String response_letter_removed = response.replaceAll("LETTER ", "");
+                Toast.makeText(getApplicationContext(), "|" + response_letter_removed + "|", Toast.LENGTH_SHORT).show();
+
+                speech_to_text.setText(response_letter_removed);
+
+                check_response(response_letter_removed);
             }
 
             @Override
@@ -111,17 +134,48 @@ public class TestEvaluate extends AppCompatActivity {
         mic_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!mic_on){
+                if (!mic_on) {
                     mic_button.setImageResource(R.drawable.ic_baseline_mic_none_24);
                     speechRecognizer.startListening(speechRecognizerIntent);
-                }else{
+                } else {
                     speechRecognizer.stopListening();
                     mic_button.setImageResource(R.drawable.ic_baseline_mic_none_24);
                 }
             }
         });
 
+        next_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                question_number++;
+                next_question();
+            }
+        });
 
+    }
+
+    private void check_response(String response) {
+
+        if(response.equals("NEXT")){
+            Toast.makeText(this, "next question", Toast.LENGTH_SHORT).show();
+            question_number++;
+            next_question();
+        }
+
+        if(response.equals(question)){
+            Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    private void next_question() {
+        try {
+            question_text.setText(question_array[question_number]);
+            question_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,font_size_array[question_number]);
+        } catch (Exception e) {
+            next_button.setVisibility(View.GONE);
+            e.printStackTrace();
+        }
     }
 
     @Override

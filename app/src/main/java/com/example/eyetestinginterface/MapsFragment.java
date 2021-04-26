@@ -1,11 +1,5 @@
 package com.example.eyetestinginterface;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.Fragment;
-
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -14,9 +8,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -105,8 +102,8 @@ public class MapsFragment extends Fragment {
 
         if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             getCurrentLocation();
-        }else {
-            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION},44);
+        } else {
+            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 44);
         }
 
         go_button.setOnClickListener(new View.OnClickListener() {
@@ -138,7 +135,7 @@ public class MapsFragment extends Fragment {
         task.addOnSuccessListener(new OnSuccessListener<Location>() {
             @Override
             public void onSuccess(Location location) {
-                if (location != null){
+                if (location != null) {
                     currentLat = location.getLatitude();
                     currentLong = location.getLongitude();
 
@@ -158,8 +155,8 @@ public class MapsFragment extends Fragment {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == 44){
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+        if (requestCode == 44) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 getCurrentLocation();
             }
         }
@@ -190,7 +187,7 @@ public class MapsFragment extends Fragment {
     private String downloadURL(String string) throws IOException {
         URL url = new URL(string);
 
-        HttpURLConnection connection = (HttpURLConnection)url.openConnection();
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.connect();
 
         InputStream stream = connection.getInputStream();
@@ -201,7 +198,7 @@ public class MapsFragment extends Fragment {
 
         String line = "";
 
-        while ((line = reader.readLine()) != null){
+        while ((line = reader.readLine()) != null) {
             builder.append(line);
         }
 
@@ -211,7 +208,7 @@ public class MapsFragment extends Fragment {
         return data;
     }
 
-    private class ParserTask extends AsyncTask<String, Integer, List<HashMap<String, String>>>{
+    private class ParserTask extends AsyncTask<String, Integer, List<HashMap<String, String>>> {
 
         @Override
         protected List<HashMap<String, String>> doInBackground(String... strings) {
@@ -238,7 +235,7 @@ public class MapsFragment extends Fragment {
 
             map.clear();
 
-            for (int i = 0; i < hashMaps.size(); i++){
+            for (int i = 0; i < hashMaps.size(); i++) {
                 HashMap<String, String> hashMapList = hashMaps.get(i);
 
                 double lat = Double.parseDouble(hashMapList.get("lat"));

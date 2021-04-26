@@ -21,17 +21,26 @@
         android:textColor="#212121"
         android:textSize="36sp" />
 
+    <TextView
+        android:id="@+id/message0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="*Distances in  feet"
+        android:layout_marginTop="4dp"
+        android:textColor="#80212121"
+        android:textSize="16sp" />
+
     <com.ramotion.fluidslider.FluidSlider
         android:id="@+id/slider"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_margin="32dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
         app:bar_color="#03A9F4"
+        app:bubble_text_color="#212121"
         app:bubble_color="#FFFFFF"
         app:duration="400"
         app:initial_position="0.2"
@@ -39,29 +48,46 @@
         app:text_size="16sp" />
 
     <TextView
+        android:id="@+id/message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Slide the bubble to set the distance\n*20 feet (Recommended)"
+        android:layout_marginTop="4dp"
+        android:textColor="#80212121"
+        android:textAlignment="center"
+        android:textSize="14sp" />
+
+    <TextView
         android:id="@+id/distance_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_margin="32dp"
+        android:layout_marginTop="64dp"
         android:text="20"
         android:textColor="#212121"
         android:textSize="36sp" />
 
-    <TextView
+    <ImageButton
         android:id="@+id/take_test_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="64dp"
+        android:src="@drawable/ic_baseline_check_circle"
+        android:scaleType="fitCenter"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/white"/>
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_margin="32dp"
-        android:background="@drawable/button_background_fill"
         android:fontFamily="@font/open_sans_semibold"
         android:paddingStart="16dp"
         android:paddingTop="8dp"
         android:paddingEnd="16dp"
         android:paddingBottom="8dp"
-        android:text="Test"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp" />
-
+        android:text="Continue to test"
+        android:textColor="#212121"
+        android:textSize="16sp" />
 </LinearLayout>

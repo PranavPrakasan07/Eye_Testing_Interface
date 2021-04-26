@@ -1,8 +1,5 @@
 package com.example.eyetestinginterface;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -24,8 +24,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
-
-import java.util.HashMap;
 
 public class SignUpActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 1;
@@ -138,7 +136,6 @@ public class SignUpActivity extends AppCompatActivity {
                             Log.d("TAG", "signInWithCredential:success");
                             FirebaseUser user = auth.getCurrentUser();
 
-                            Toast.makeText(getApplicationContext(), "Clicked!", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), Home.class));
 
                         } else {

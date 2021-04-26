@@ -10,7 +10,7 @@ import java.util.List;
 
 public class JSONParser {
 
-    private HashMap<String, String> parseJsonObject(JSONObject object){
+    private HashMap<String, String> parseJsonObject(JSONObject object) {
         HashMap<String, String> dataList = new HashMap<>();
 
         try {
@@ -34,9 +34,9 @@ public class JSONParser {
         return dataList;
     }
 
-    private List<HashMap<String, String>> parseJsonArray(JSONArray jsonArray){
+    private List<HashMap<String, String>> parseJsonArray(JSONArray jsonArray) {
         List<HashMap<String, String>> dataList = new ArrayList<>();
-        for(int i = 0; i < jsonArray.length(); i++){
+        for (int i = 0; i < jsonArray.length(); i++) {
             try {
                 HashMap<String, String> data = parseJsonObject((JSONObject) jsonArray.get(i));
                 dataList.add(data);
@@ -50,7 +50,7 @@ public class JSONParser {
         return dataList;
     }
 
-    public List<HashMap<String, String>> parseResult(JSONObject object){
+    public List<HashMap<String, String>> parseResult(JSONObject object) {
 
         JSONArray jsonArray = null;
 
@@ -60,7 +60,7 @@ public class JSONParser {
             e.printStackTrace();
         }
 
-        return  parseJsonArray(jsonArray);
+        return parseJsonArray(jsonArray);
 
     }
 

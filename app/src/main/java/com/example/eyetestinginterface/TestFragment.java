@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.ramotion.fluidslider.FluidSlider;
@@ -70,7 +71,7 @@ public class TestFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_test, container, false);
 
         TextView distance_text = view.findViewById(R.id.distance_text);
-        TextView take_test = view.findViewById(R.id.take_test_button);
+        ImageButton take_test = view.findViewById(R.id.take_test_button);
         FluidSlider slider = view.findViewById(R.id.slider);
 
         final String[] distance = {"20"};

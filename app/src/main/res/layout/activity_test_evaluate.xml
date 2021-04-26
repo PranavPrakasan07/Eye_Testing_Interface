@@ -14,6 +14,7 @@
         android:layout_centerInParent="true"
         android:fontFamily="@font/courier_bold"
         android:text="E"
+        android:textAlignment="center"
         android:textColor="#121212"
         android:textSize="300dp"
         android:visibility="visible" />
@@ -22,12 +23,15 @@
         android:id="@+id/speech_to_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/text"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/open_sans_semibold"
         android:inputType="text"
-        android:layout_above="@+id/text"
         android:textAlignment="center"
         android:textAllCaps="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
         android:textColor="#121212"
         android:textSize="36dp"
         android:visibility="visible" />
@@ -36,21 +40,21 @@
         android:id="@+id/mic_button"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_baseline_mic_none_24"
-        android:background="@drawable/round_stroke"
-        android:layout_centerHorizontal="true"
         android:layout_above="@+id/next_button"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="32dp"
-        android:outlineProvider="background"/>
+        android:background="@drawable/round_stroke"
+        android:outlineProvider="background"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_baseline_mic_off_24" />
 
     <ImageView
         android:id="@+id/next_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_arrow_forward"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="32dp"
-        android:layout_centerHorizontal="true"/>
+        android:src="@drawable/ic_baseline_arrow_forward" />
 
 </RelativeLayout>

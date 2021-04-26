@@ -20,8 +20,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:lottie_autoPlay="true"
-        app:lottie_loop="true"
         app:lottie_fileName="eye-animation.json"
+        app:lottie_loop="true"
         app:lottie_url="https://assets6.lottiefiles.com/temp/lf20_D0nz3r.json" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

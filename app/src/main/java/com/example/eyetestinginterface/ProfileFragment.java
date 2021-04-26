@@ -3,9 +3,6 @@ package com.example.eyetestinginterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +12,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
 
 import com.squareup.picasso.Picasso;
 
