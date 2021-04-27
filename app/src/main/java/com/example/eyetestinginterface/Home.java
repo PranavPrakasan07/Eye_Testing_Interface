@@ -17,10 +17,27 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-
         chipNavigationBar = findViewById(R.id.bottom_nav_bar);
 
         chipNavigationBar.setItemSelected(R.id.nav_test, true);
+
+        try {
+            Bundle extras = getIntent().getExtras();
+            String toOpen = extras.getString("toOpen");
+
+            if(toOpen.equals("Test")){
+                chipNavigationBar.setItemSelected(R.id.nav_test, true);
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment, new TestFragment()).commit();
+            }
+
+            if(toOpen.equals("Maps")){
+                chipNavigationBar.setItemSelected(R.id.nav_find_doctor, true);
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment, new MapsFragment()).commit();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         Log.d("TAG : i", String.valueOf(chipNavigationBar.getSelectedItemId()));
 

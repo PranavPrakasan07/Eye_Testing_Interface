@@ -40,7 +40,7 @@ public class TestEvaluate extends AppCompatActivity {
 
     String[] question_array = new String[]{"E", "F P", "T O Z", "L P E D", "P E C F D", "E D F C Z P", "F E L O P Z D", "D E F P O T E C", "L E F O D P C T"};
     int[] font_size_array = new int[]{152, 130, 108, 87, 65, 43, 33, 21, 15, 9};
-    int[] distance_array = new int[]{ 70, 60, 50, 40, 30, 20, 15, 10, 7, 4};
+    int[] distance_array = new int[]{70, 60, 50, 40, 30, 20, 15, 10, 7, 4};
 
 
     private SpeechRecognizer speechRecognizer;
@@ -151,29 +151,33 @@ public class TestEvaluate extends AppCompatActivity {
                 next_question();
             }
         });
-
     }
 
     private void check_response(String response) {
 
-        if(response.equals("NEXT")){
+        if (response.equals("NEXT")) {
             Toast.makeText(this, "next question", Toast.LENGTH_SHORT).show();
             question_number++;
             next_question();
         }
 
-        if(response.equals(question)){
+        if (response.equals(question)) {
             Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
         }
-
     }
 
     private void next_question() {
         try {
+            speech_to_text.setText("");
             question_text.setText(question_array[question_number]);
-            question_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,font_size_array[question_number]);
+            question_text.setTextSize(TypedValue.COMPLEX_UNIT_SP, font_size_array[question_number]);
         } catch (Exception e) {
-            next_button.setVisibility(View.GONE);
+            speech_to_text.setText("");
+            next_button.setVisibility(View.INVISIBLE);
+
+            Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
+            startActivity(intent);
+
             e.printStackTrace();
         }
     }
@@ -197,7 +201,5 @@ public class TestEvaluate extends AppCompatActivity {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED)
                 Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show();
         }
-
     }
-
 }
