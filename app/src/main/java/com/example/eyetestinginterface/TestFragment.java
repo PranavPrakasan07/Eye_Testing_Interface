@@ -24,6 +24,9 @@ import kotlin.jvm.functions.Function0;
  */
 public class TestFragment extends Fragment {
 
+    final static String[] distance = {"20"};
+
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -73,8 +76,6 @@ public class TestFragment extends Fragment {
         TextView distance_text = view.findViewById(R.id.distance_text);
         ImageButton take_test = view.findViewById(R.id.take_test_button);
         FluidSlider slider = view.findViewById(R.id.slider);
-
-        final String[] distance = {"20"};
 
         slider.setPositionListener(pos -> {
             final String value = String.valueOf((int) (pos * 100));

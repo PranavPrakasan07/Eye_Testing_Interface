@@ -3,6 +3,7 @@ package com.example.eyetestinginterface;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.speech.RecognitionListener;
@@ -37,10 +38,14 @@ public class TestEvaluate extends AppCompatActivity {
     String question = "";
 
     int question_number = 0;
+    int incorrect = 0;
+
 
     String[] question_array = new String[]{"E", "F P", "T O Z", "L P E D", "P E C F D", "E D F C Z P", "F E L O P Z D", "D E F P O T E C", "L E F O D P C T"};
     int[] font_size_array = new int[]{152, 130, 108, 87, 65, 43, 33, 21, 15, 9};
     int[] distance_array = new int[]{70, 60, 50, 40, 30, 20, 15, 10, 7, 4};
+
+    static int test_score = 70;
 
 
     private SpeechRecognizer speechRecognizer;
@@ -155,6 +160,8 @@ public class TestEvaluate extends AppCompatActivity {
 
     private void check_response(String response) {
 
+        question = question_array[question_number];
+
         if (response.equals("NEXT")) {
             Toast.makeText(this, "next question", Toast.LENGTH_SHORT).show();
             question_number++;
@@ -162,7 +169,19 @@ public class TestEvaluate extends AppCompatActivity {
         }
 
         if (response.equals(question)) {
+            incorrect = 0;
             Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
+            question_number++;
+            next_question();
+        }else {
+            incorrect++;
+            test_score = distance_array[question_number];
+        }
+
+        if(incorrect > 2){
+            question_text.setTextColor(Color.parseColor("#ff7161"));
+            Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
+            startActivity(intent);
         }
     }
 
