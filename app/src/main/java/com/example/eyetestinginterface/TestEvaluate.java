@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
@@ -102,12 +103,13 @@ public class TestEvaluate extends AppCompatActivity {
 
             @Override
             public void onEndOfSpeech() {
+                mic_button.setImageResource(R.drawable.ic_baseline_mic_off_24);
 
             }
 
             @Override
             public void onError(int i) {
-
+                mic_button.setImageResource(R.drawable.ic_baseline_mic_off_24);
             }
 
             @Override
@@ -118,7 +120,6 @@ public class TestEvaluate extends AppCompatActivity {
                 String response = data.get(0).toUpperCase();
 
                 String response_letter_removed = response.replaceAll("LETTER ", "");
-                Toast.makeText(getApplicationContext(), "|" + response_letter_removed + "|", Toast.LENGTH_SHORT).show();
 
                 speech_to_text.setText(response_letter_removed);
 
@@ -152,8 +153,12 @@ public class TestEvaluate extends AppCompatActivity {
         next_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                question_number++;
-                next_question();
+
+                if (speech_to_text.getText().toString().equals("")) {
+                    Toast.makeText(TestEvaluate.this, "Please give your response!", Toast.LENGTH_SHORT).show();
+                } else {
+                    check_response(speech_to_text.getText().toString());
+                }
             }
         });
     }
@@ -163,23 +168,29 @@ public class TestEvaluate extends AppCompatActivity {
         question = question_array[question_number];
 
         if (response.equals("NEXT")) {
-            Toast.makeText(this, "next question", Toast.LENGTH_SHORT).show();
             question_number++;
             next_question();
         }
 
         if (response.equals(question)) {
-            incorrect = 0;
-            Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
-            question_number++;
-            next_question();
-        }else {
+            question_text.setTextColor(getColor(R.color.correct));
+
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    incorrect = 0;
+                    question_number++;
+                    next_question();
+                }
+            }, 1000);
+
+        } else {
             incorrect++;
             test_score = distance_array[question_number];
         }
 
-        if(incorrect > 2){
-            question_text.setTextColor(Color.parseColor("#ff7161"));
+        if (incorrect > 2) {
+            question_text.setTextColor(getColor(R.color.error));
             Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
             startActivity(intent);
         }
@@ -188,6 +199,7 @@ public class TestEvaluate extends AppCompatActivity {
     private void next_question() {
         try {
             speech_to_text.setText("");
+            question_text.setTextColor(getColor(R.color.text_color));
             question_text.setText(question_array[question_number]);
             question_text.setTextSize(TypedValue.COMPLEX_UNIT_SP, font_size_array[question_number]);
         } catch (Exception e) {

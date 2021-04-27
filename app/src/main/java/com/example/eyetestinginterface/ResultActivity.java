@@ -3,6 +3,7 @@ package com.example.eyetestinginterface;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.view.View;
@@ -45,8 +46,19 @@ public class ResultActivity extends AppCompatActivity implements TextToSpeech.On
         startActivityForResult(checkTTSIntent, MY_DATA_CHECK_CODE);
 
         try {
+
+            int test_score = TestEvaluate.test_score;
+            int distance = Integer.parseInt(TestFragment.distance[0]);
+
             score_read = TestFragment.distance[0] + " / " + TestEvaluate.test_score;
             score_speak = TestFragment.distance[0] + " by " + TestEvaluate.test_score;
+
+            if((float)test_score/distance > 0.25 && (float)test_score/distance < 0.75){
+                score_speak += "Condition is normal";
+            }else{
+                score_speak += "Recommended to visit an optician";
+                score_text.setTextColor(Color.parseColor("#ff7161"));
+            }
 
             score_text.setText(score_read);
 
@@ -78,6 +90,7 @@ public class ResultActivity extends AppCompatActivity implements TextToSpeech.On
             @Override
             public void onClick(View v) {
                 speakWords("Your score is " + score_speak);
+
             }
         });
     }

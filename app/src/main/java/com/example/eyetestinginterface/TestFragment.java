@@ -78,7 +78,7 @@ public class TestFragment extends Fragment {
         FluidSlider slider = view.findViewById(R.id.slider);
 
         slider.setPositionListener(pos -> {
-            final String value = String.valueOf((int) (pos * 100));
+            final String value = String.valueOf((int) (pos * 20));
             slider.setBubbleText(value);
             distance_text.setText(value);
 

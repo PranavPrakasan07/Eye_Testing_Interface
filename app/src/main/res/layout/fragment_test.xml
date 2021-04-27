@@ -42,8 +42,10 @@
         app:bar_color="#03A9F4"
         app:bubble_text_color="#212121"
         app:bubble_color="#FFFFFF"
+        app:start_text="0"
+        app:end_text="20"
         app:duration="400"
-        app:initial_position="0.2"
+        app:initial_position="0.0"
         app:size="normal"
         app:text_size="16sp" />
 
@@ -52,7 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Slide the bubble to set the distance\n*20 feet (Recommended)"
+        android:text="Slide the bubble to set the distance\n*14-20 feet (Recommended)"
         android:layout_marginTop="4dp"
         android:textColor="#80212121"
         android:textAlignment="center"
