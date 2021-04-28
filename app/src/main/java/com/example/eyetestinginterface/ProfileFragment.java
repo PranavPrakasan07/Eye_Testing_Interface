@@ -97,28 +97,25 @@ public class ProfileFragment extends Fragment {
         Picasso.get().load(LoginActivity.auth.getCurrentUser().getPhotoUrl())
                 .into(profile_photo);
 
-        profile_photo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        profile_photo.setOnClickListener(v -> {
 
-                profile_fragment.setBackgroundColor(Color.parseColor("#121212"));
+            profile_fragment.setBackgroundColor(Color.parseColor("#121212"));
 
-                profile_layout.setVisibility(View.GONE);
-                animation_layout.setVisibility(View.VISIBLE);
+            profile_layout.setVisibility(View.GONE);
+            animation_layout.setVisibility(View.VISIBLE);
 
-                Handler handler = new Handler();
+            Handler handler = new Handler();
 
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        startActivity(new Intent(getContext(), LoginActivity.class));
-                    }
-                }, 2000);
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    startActivity(new Intent(getContext(), LoginActivity.class));
+                }
+            }, 2000);
 
 //                LoginActivity.auth.signOut();
 //                Toast.makeText(getActivity(), "Clicked", Toast.LENGTH_SHORT).show();
 //                startActivity(new Intent(getContext(), LoginActivity.class));
-            }
         });
 
         // Inflate the layout for this fragment

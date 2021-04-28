@@ -26,8 +26,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="*Distances in  feet"
         android:layout_marginTop="4dp"
+        android:text="*Distances in  feet"
         android:textColor="#80212121"
         android:textSize="16sp" />
 
@@ -40,13 +40,13 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         app:bar_color="#03A9F4"
-        app:bubble_text_color="#212121"
         app:bubble_color="#FFFFFF"
-        app:start_text="0"
-        app:end_text="20"
+        app:bubble_text_color="#212121"
         app:duration="400"
+        app:end_text="20"
         app:initial_position="0.0"
         app:size="normal"
+        app:start_text="0"
         app:text_size="16sp" />
 
     <TextView
@@ -54,10 +54,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Slide the bubble to set the distance\n*14-20 feet (Recommended)"
         android:layout_marginTop="4dp"
-        android:textColor="#80212121"
+        android:text="Slide the bubble to set the distance\n*14-20 feet (Recommended)"
         android:textAlignment="center"
+        android:textColor="#80212121"
         android:textSize="14sp" />
 
     <TextView
@@ -74,11 +74,11 @@
         android:id="@+id/take_test_button"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginTop="64dp"
-        android:src="@drawable/ic_baseline_check_circle"
-        android:scaleType="fitCenter"
         android:layout_gravity="center_horizontal"
-        android:background="@color/white"/>
+        android:layout_marginTop="64dp"
+        android:background="@color/white"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_baseline_check_circle" />
 
     <TextView
         android:layout_width="wrap_content"

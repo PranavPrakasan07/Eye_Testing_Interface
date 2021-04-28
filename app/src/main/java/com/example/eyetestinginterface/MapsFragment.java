@@ -80,7 +80,6 @@ public class MapsFragment extends Fragment {
                 }
             });
         }
-
     };
 
     @Nullable

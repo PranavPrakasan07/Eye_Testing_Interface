@@ -68,31 +68,19 @@ public class ResultActivity extends AppCompatActivity implements TextToSpeech.On
 
         Toast.makeText(this, Arrays.toString(TestFragment.distance), Toast.LENGTH_SHORT).show();
 
-        retry_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Home.class);
-                intent.putExtra("toOpen", "Test");
-                startActivity(intent);
-            }
+        retry_button.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), Home.class);
+            intent.putExtra("toOpen", "Test");
+            startActivity(intent);
         });
 
-        finish_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Home.class);
-                intent.putExtra("toOpen", "Maps");
-                startActivity(intent);
-            }
+        finish_button.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), Home.class);
+            intent.putExtra("toOpen", "Maps");
+            startActivity(intent);
         });
 
-        speak_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                speakWords("Your score is " + score_speak);
-
-            }
-        });
+        speak_button.setOnClickListener(v -> speakWords("Your score is " + score_speak));
     }
 
     //speak the user text

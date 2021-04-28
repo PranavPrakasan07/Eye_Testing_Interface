@@ -60,8 +60,8 @@ public class JSONParser {
             e.printStackTrace();
         }
 
+        assert jsonArray != null;
         return parseJsonArray(jsonArray);
 
     }
-
 }

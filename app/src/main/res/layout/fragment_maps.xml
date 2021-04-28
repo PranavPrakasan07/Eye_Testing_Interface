@@ -17,7 +17,8 @@
         android:text="GO"
         android:textColor="#121212"
         android:textSize="36sp"
-        app:backgroundTint="@color/white" />
+        app:backgroundTint="@color/white"
+        android:contentDescription="Search Button" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/map"

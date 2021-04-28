@@ -3,7 +3,6 @@ package com.example.eyetestinginterface;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -23,10 +22,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Locale;
-import java.util.Set;
 
 public class TestEvaluate extends AppCompatActivity {
 
@@ -40,7 +36,6 @@ public class TestEvaluate extends AppCompatActivity {
 
     int question_number = 0;
     int incorrect = 0;
-
 
     String[] question_array = new String[]{"E", "F P", "T O Z", "L P E D", "P E C F D", "E D F C Z P", "F E L O P Z D", "D E F P O T E C", "L E F O D P C T"};
     int[] font_size_array = new int[]{152, 130, 108, 87, 65, 43, 33, 21, 15, 9};
@@ -137,28 +132,22 @@ public class TestEvaluate extends AppCompatActivity {
             }
         });
 
-        mic_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!mic_on) {
-                    mic_button.setImageResource(R.drawable.ic_baseline_mic_none_24);
-                    speechRecognizer.startListening(speechRecognizerIntent);
-                } else {
-                    speechRecognizer.stopListening();
-                    mic_button.setImageResource(R.drawable.ic_baseline_mic_none_24);
-                }
+        mic_button.setOnClickListener(v -> {
+            if (!mic_on) {
+                mic_button.setImageResource(R.drawable.ic_baseline_mic_none_24);
+                speechRecognizer.startListening(speechRecognizerIntent);
+            } else {
+                speechRecognizer.stopListening();
+                mic_button.setImageResource(R.drawable.ic_baseline_mic_none_24);
             }
         });
 
-        next_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        next_button.setOnClickListener(v -> {
 
-                if (speech_to_text.getText().toString().equals("")) {
-                    Toast.makeText(TestEvaluate.this, "Please give your response!", Toast.LENGTH_SHORT).show();
-                } else {
-                    check_response(speech_to_text.getText().toString());
-                }
+            if (speech_to_text.getText().toString().equals("")) {
+                Toast.makeText(TestEvaluate.this, "Please give your response!", Toast.LENGTH_SHORT).show();
+            } else {
+                check_response(speech_to_text.getText().toString().toUpperCase());
             }
         });
     }
@@ -175,13 +164,10 @@ public class TestEvaluate extends AppCompatActivity {
         if (response.equals(question)) {
             question_text.setTextColor(getColor(R.color.correct));
 
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    incorrect = 0;
-                    question_number++;
-                    next_question();
-                }
+            new Handler().postDelayed(() -> {
+                incorrect = 0;
+                question_number++;
+                next_question();
             }, 1000);
 
         } else {
