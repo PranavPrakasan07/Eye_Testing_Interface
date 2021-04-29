@@ -69,5 +69,4 @@ dependencies {
 
     implementation 'com.github.Chrisvin:RubberPicker:v1.5'
     implementation 'com.ramotion.fluidslider:fluid-slider:0.3.1'
-
 }

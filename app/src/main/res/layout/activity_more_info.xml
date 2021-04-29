@@ -97,4 +97,14 @@
         android:textColor="@color/background_color"
         android:textSize="16sp" />
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:visibility="gone"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/continue_button"
+        android:layout_marginTop="64dp"/>
+
 </RelativeLayout>

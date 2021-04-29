@@ -2,7 +2,9 @@ package com.example.eyetestinginterface;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,6 +25,7 @@ public class MoreInfoActivity extends AppCompatActivity {
     TextInputEditText mobile_number, current_address;
     TextInputLayout mobile_layout, address_layout;
     private String mobile, address;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +39,11 @@ public class MoreInfoActivity extends AppCompatActivity {
         mobile_layout = findViewById(R.id.filled_mobile);
         address_layout = findViewById(R.id.filled_address);
 
+        progressBar = findViewById(R.id.progressBar);
+
         continue_button.setOnClickListener(v -> {
+
+            progressBar.setVisibility(View.VISIBLE);
 
             mobile_layout.setErrorEnabled(false);
             address_layout.setErrorEnabled(false);
@@ -69,11 +76,13 @@ public class MoreInfoActivity extends AppCompatActivity {
                             @Override
                             public void onVerificationFailed(@NonNull FirebaseException e) {
                                 Toast.makeText(MoreInfoActivity.this, "Failed!", Toast.LENGTH_SHORT).show();
+                                progressBar.setVisibility(View.GONE);
                             }
 
                             @Override
                             public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
                                 super.onCodeSent(s, forceResendingToken);
+                                progressBar.setVisibility(View.GONE);
                                 Intent intent = new Intent(getApplicationContext(), OTPActivity.class);
                                 intent.putExtra("phone", mobile);
                                 intent.putExtra("otp", s);

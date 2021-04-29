@@ -19,7 +19,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EyeTestingInterface">
-        <activity android:name=".OTPActivity"></activity>
+        <activity android:name=".OTPActivity"/>
         <activity android:name=".MoreInfoActivity" />
         <activity android:name=".ResultActivity" />
         <activity android:name=".TestEvaluate" />
@@ -50,6 +50,7 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
     </application>
 
 </manifest>
