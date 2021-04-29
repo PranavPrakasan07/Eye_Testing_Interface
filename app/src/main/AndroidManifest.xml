@@ -19,7 +19,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EyeTestingInterface">
-        <activity android:name=".MoreInfoActivity"></activity>
+        <activity android:name=".OTPActivity"></activity>
+        <activity android:name=".MoreInfoActivity" />
         <activity android:name=".ResultActivity" />
         <activity android:name=".TestEvaluate" />
         <!--

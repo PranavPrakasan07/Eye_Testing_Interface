@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    tools:context=".OTPActivity">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationView"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="32dp"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="otp-animation.json"
+        app:lottie_loop="true"
+        app:lottie_url="https://assets3.lottiefiles.com/packages/lf20_BXjpMF.json" />
+
+    <LinearLayout
+        android:id="@+id/otp_digits"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/animationView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/digit1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/opt_stroke"
+            android:hint="0"
+            android:padding="4dp"
+            android:textAlignment="center"
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/hint_text_color"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/digit2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/opt_stroke"
+            android:hint="0"
+            android:padding="4dp"
+            android:textAlignment="center"
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/hint_text_color"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/digit3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/opt_stroke"
+            android:hint="0"
+            android:padding="4dp"
+            android:textAlignment="center"
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/hint_text_color"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/digit4"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/opt_stroke"
+            android:hint="0"
+            android:padding="4dp"
+            android:textAlignment="center"
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/hint_text_color"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/digit5"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/opt_stroke"
+            android:hint="0"
+            android:padding="4dp"
+            android:textAlignment="center"
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/hint_text_color"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/digit6"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/opt_stroke"
+            android:hint="0"
+            android:inputType="number"
+            android:padding="4dp"
+            android:textAlignment="center"
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/hint_text_color"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/resend_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/otp_digits"
+        android:layout_alignEnd="@id/otp_digits"
+        android:fontFamily="@font/open_sans_semibold"
+        android:text="Resend OTP ?"
+        android:textAlignment="viewEnd"
+        android:textColor="@color/hint_text_color"
+        android:textSize="16sp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/verify_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/resend_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/button_background_fill"
+        android:fontFamily="@font/open_sans_semibold"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:text="Verify"
+        android:textColor="@color/background_color"
+        android:textSize="16sp" />
+
+
+</RelativeLayout>

@@ -31,9 +31,11 @@
         android:layout_marginTop="64dp"
         android:layout_marginEnd="32dp"
         android:hint="Mobile Number"
+        app:boxStrokeErrorColor="@color/text_color"
         android:textColorHint="@color/hint_text_color"
-        app:boxStrokeColor="@color/text_color"
+        app:boxStrokeColor="@color/error"
         app:endIconMode="clear_text"
+        app:errorEnabled="false"
         app:endIconTint="@color/hint_text_color"
         app:hintTextColor="@color/hint_text_color">
 
@@ -41,13 +43,12 @@
             android:id="@+id/mobile_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:inputType="phone"
             android:textColor="@color/text_color"
             android:textColorHighlight="@color/highlight"
             android:textSize="16sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
-
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/filled_address"
@@ -57,8 +58,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/filled_mobile"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
+        app:errorEnabled="false"
+        app:boxStrokeErrorColor="@color/error"
         android:hint="Current Address"
         android:textColorHint="@color/hint_text_color"
         app:boxStrokeColor="@color/text_color"
@@ -93,6 +96,5 @@
         android:text="Continue"
         android:textColor="@color/background_color"
         android:textSize="16sp" />
-
 
 </RelativeLayout>
