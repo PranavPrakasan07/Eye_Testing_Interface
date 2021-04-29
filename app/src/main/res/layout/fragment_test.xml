@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/background_color"
     android:orientation="vertical"
     tools:context=".TestFragment">
 
@@ -18,7 +18,7 @@
         android:layout_marginTop="64dp"
         android:fontFamily="@font/open_sans_semibold"
         android:text="Set Distance"
-        android:textColor="#212121"
+        android:textColor="@color/text_color"
         android:textSize="36sp" />
 
     <TextView
@@ -28,7 +28,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="4dp"
         android:text="*Distances in  feet"
-        android:textColor="#80212121"
+        android:textColor="@color/hint_text_color"
         android:textSize="16sp" />
 
     <com.ramotion.fluidslider.FluidSlider
@@ -40,8 +40,8 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         app:bar_color="#03A9F4"
-        app:bubble_color="#FFFFFF"
-        app:bubble_text_color="#212121"
+        app:bubble_color="@color/background_color"
+        app:bubble_text_color="@color/text_color"
         app:duration="400"
         app:end_text="20"
         app:initial_position="0.0"
@@ -57,7 +57,7 @@
         android:layout_marginTop="4dp"
         android:text="Slide the bubble to set the distance\n*14-20 feet (Recommended)"
         android:textAlignment="center"
-        android:textColor="#80212121"
+        android:textColor="@color/hint_text_color"
         android:textSize="14sp" />
 
     <TextView
@@ -67,7 +67,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="64dp"
         android:text="20"
-        android:textColor="#212121"
+        android:textColor="@color/text_color"
         android:textSize="36sp" />
 
     <ImageButton
@@ -76,7 +76,7 @@
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="64dp"
-        android:background="@color/white"
+        android:background="@color/background_color"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_baseline_check_circle" />
 
@@ -90,6 +90,6 @@
         android:paddingEnd="16dp"
         android:paddingBottom="8dp"
         android:text="Continue to test"
-        android:textColor="#212121"
+        android:textColor="@color/text_color"
         android:textSize="16sp" />
 </LinearLayout>

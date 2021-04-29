@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    tools:context=".MoreInfoActivity">
+
+    <TextView
+        android:id="@+id/more_info_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="64dp"
+        android:text="More Info"
+        android:textColor="@color/text_color"
+        android:textSize="36sp"
+        tools:layout_editor_absoluteX="185dp"
+        tools:layout_editor_absoluteY="204dp" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/filled_mobile"
+
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/more_info_header"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Mobile Number"
+        android:textColorHint="@color/hint_text_color"
+        app:boxStrokeColor="@color/text_color"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/hint_text_color"
+        app:hintTextColor="@color/hint_text_color">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/mobile_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:textColor="@color/text_color"
+            android:textColorHighlight="@color/highlight"
+            android:textSize="16sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/filled_address"
+
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/filled_mobile"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Current Address"
+        android:textColorHint="@color/hint_text_color"
+        app:boxStrokeColor="@color/text_color"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/hint_text_color"
+        app:hintTextColor="@color/hint_text_color">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPostalAddress"
+            android:textColor="@color/text_color"
+            android:textColorHighlight="@color/highlight"
+            android:textSize="16sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/continue_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/filled_address"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/button_background_fill"
+        android:fontFamily="@font/open_sans_semibold"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:text="Continue"
+        android:textColor="@color/background_color"
+        android:textSize="16sp" />
+
+
+</RelativeLayout>

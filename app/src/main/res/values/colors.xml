@@ -12,5 +12,7 @@
     <color name="error">#ff7161</color>
     <color name="correct">#6FFF9B</color>
     <color name="text_color">#212121</color>
+    <color name="background_color">#FFFFFFFF</color>
+    <color name="hint_text_color">#80212121</color>
 
 </resources>

@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/background_color">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/go_button"
@@ -13,12 +14,12 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="32dp"
         android:background="@drawable/round_stroke"
+        android:contentDescription="Search Button"
         android:src="@drawable/ic_search_icon"
         android:text="GO"
-        android:textColor="#121212"
+        android:textColor="@color/text_color"
         android:textSize="36sp"
-        app:backgroundTint="@color/white"
-        android:contentDescription="Search Button" />
+        app:backgroundTint="@color/white" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/map"

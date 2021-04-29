@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/background_color"
     tools:context=".TestEvaluate">
 
     <TextView
@@ -15,7 +15,7 @@
         android:fontFamily="@font/courier_bold"
         android:text="E"
         android:textAlignment="center"
-        android:textColor="#121212"
+        android:textColor="@color/text_color"
         android:textSize="300dp"
         android:visibility="visible" />
 
@@ -33,7 +33,8 @@
         android:inputType="text"
         android:textAlignment="center"
         android:textAllCaps="true"
-        android:textColor="#121212"
+        android:textColor="@color/text_color"
+        android:textColorHint="@color/hint_text_color"
         android:textSize="36dp"
         android:visibility="visible" />
 
@@ -47,7 +48,8 @@
         android:background="@drawable/round_stroke"
         android:outlineProvider="background"
         android:scaleType="fitCenter"
-        android:src="@drawable/ic_baseline_mic_off_24" />
+        android:src="@drawable/ic_baseline_mic_off_24"
+        app:tint="@color/text_color" />
 
     <ImageView
         android:id="@+id/next_button"
@@ -56,6 +58,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="32dp"
-        android:src="@drawable/ic_baseline_arrow_forward" />
+        android:src="@drawable/ic_baseline_arrow_forward"
+        app:tint="@color/text_color" />
 
 </RelativeLayout>

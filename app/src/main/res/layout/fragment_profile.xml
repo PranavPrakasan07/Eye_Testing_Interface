@@ -5,15 +5,15 @@
     android:id="@+id/profile_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ic_profile_bg"
+    android:background="@color/background_color"
     tools:context=".ProfileFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
     <ImageView
         android:id="@+id/profile_photo"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="32dp"
@@ -28,12 +28,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/profile_photo"
         android:layout_centerHorizontal="true"
-        android:layout_margin="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
         android:fontFamily="@font/open_sans_semibold"
         android:text="Name"
         android:textAlignment="gravity"
         android:textAllCaps="false"
-        android:textColor="#121212"
+        android:textColor="@color/text_color"
         android:textSize="24sp" />
 
 
@@ -48,7 +49,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="32dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
             android:orientation="vertical">
 
             <com.google.android.material.textview.MaterialTextView
@@ -60,7 +63,7 @@
                 android:text="Email"
                 android:textAlignment="gravity"
                 android:textAllCaps="false"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/background_color"
                 android:textSize="18sp" />
 
 
@@ -69,12 +72,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:fontFamily="@font/open_sans"
                 android:gravity="center_horizontal|center_vertical"
                 android:text="someone@gmail.com"
-                android:fontFamily="@font/open_sans"
                 android:textAlignment="gravity"
                 android:textAllCaps="false"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/background_color"
                 android:textSize="18sp" />
 
             <com.google.android.material.textview.MaterialTextView
@@ -87,7 +90,7 @@
                 android:text="Contact"
                 android:textAlignment="gravity"
                 android:textAllCaps="false"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/background_color"
                 android:textSize="18sp" />
 
 
@@ -96,12 +99,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:fontFamily="@font/open_sans"
                 android:gravity="center_horizontal|center_vertical"
                 android:text="9191919191"
                 android:textAlignment="gravity"
-                android:fontFamily="@font/open_sans"
                 android:textAllCaps="false"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/background_color"
                 android:textSize="18sp" />
 
             <com.google.android.material.textview.MaterialTextView
@@ -114,7 +117,7 @@
                 android:text="Current Address"
                 android:textAlignment="gravity"
                 android:textAllCaps="false"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/background_color"
                 android:textSize="18sp" />
 
 
@@ -123,12 +126,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:fontFamily="@font/open_sans"
                 android:gravity="center_horizontal|center_vertical"
                 android:text="-"
-                android:fontFamily="@font/open_sans"
                 android:textAlignment="gravity"
                 android:textAllCaps="false"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/background_color"
                 android:textSize="18sp" />
 
             <com.google.android.material.textview.MaterialTextView
@@ -141,7 +144,7 @@
                 android:text="Last Appointment"
                 android:textAlignment="gravity"
                 android:textAllCaps="false"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/background_color"
                 android:textSize="18sp" />
 
 
@@ -154,7 +157,7 @@
                 android:text="-"
                 android:textAlignment="gravity"
                 android:textAllCaps="false"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/background_color"
                 android:textSize="18sp" />
 
         </LinearLayout>
