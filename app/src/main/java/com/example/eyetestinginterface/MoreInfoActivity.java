@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.FirebaseException;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 
@@ -25,7 +27,18 @@ public class MoreInfoActivity extends AppCompatActivity {
     TextInputEditText mobile_number, current_address;
     TextInputLayout mobile_layout, address_layout;
     private String mobile, address;
+    TextView header;
     ProgressBar progressBar;
+//
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        FirebaseUser currentUser = LoginActivity.auth.getCurrentUser();
+//
+//        if (currentUser != null) {
+//            startActivity(new Intent(getApplicationContext(), Home.class));
+//        }
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +48,14 @@ public class MoreInfoActivity extends AppCompatActivity {
         continue_button = findViewById(R.id.continue_button);
         mobile_number = findViewById(R.id.mobile_number);
         current_address = findViewById(R.id.address);
+        header = findViewById(R.id.more_info_header);
 
         mobile_layout = findViewById(R.id.filled_mobile);
         address_layout = findViewById(R.id.filled_address);
 
         progressBar = findViewById(R.id.progressBar);
+
+        header.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Home.class)));
 
         continue_button.setOnClickListener(v -> {
 
