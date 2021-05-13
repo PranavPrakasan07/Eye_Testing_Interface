@@ -89,12 +89,12 @@ public class ProfileFragment extends Fragment {
 
         profile_fragment = view.findViewById(R.id.profile_fragment);
 
-        username.setText(Objects.requireNonNull(LoginActivity.auth.getCurrentUser()).getDisplayName());
-        email.setText(LoginActivity.auth.getCurrentUser().getEmail());
+//        username.setText(Objects.requireNonNull(LoginActivity.auth.getCurrentUser()).getDisplayName());
+//        email.setText(LoginActivity.auth.getCurrentUser().getEmail());
 
         profile_photo.setClipToOutline(true);
 
-        Picasso.get().load(LoginActivity.auth.getCurrentUser().getPhotoUrl())
+        Picasso.get().load(Objects.requireNonNull(LoginActivity.auth.getCurrentUser()).getPhotoUrl())
                 .into(profile_photo);
 
         profile_photo.setOnClickListener(v -> {
@@ -117,6 +117,10 @@ public class ProfileFragment extends Fragment {
 //                Toast.makeText(getActivity(), "Clicked", Toast.LENGTH_SHORT).show();
 //                startActivity(new Intent(getContext(), LoginActivity.class));
         });
+
+        email.setText(UserDetails.getUser_email());
+        username.setText(UserDetails.getUser_name());
+
 
         // Inflate the layout for this fragment
         return view;
