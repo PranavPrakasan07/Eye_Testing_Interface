@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.squareup.picasso.Picasso;
 
 import java.util.Objects;
@@ -97,11 +98,16 @@ public class ProfileFragment extends Fragment {
         Picasso.get().load(Objects.requireNonNull(LoginActivity.auth.getCurrentUser()).getPhotoUrl())
                 .into(profile_photo);
 
+        email.setText(Objects.requireNonNull(LoginActivity.auth.getCurrentUser().getEmail()));
+        username.setText(LoginActivity.auth.getCurrentUser().getDisplayName());
+
         profile_photo.setOnClickListener(v -> {
 
             profile_fragment.setBackgroundColor(Color.parseColor("#121212"));
 
             profile_layout.setVisibility(View.GONE);
+            profile_photo.setVisibility(View.INVISIBLE);
+
             animation_layout.setVisibility(View.VISIBLE);
 
             Handler handler = new Handler();
@@ -118,8 +124,6 @@ public class ProfileFragment extends Fragment {
 //                startActivity(new Intent(getContext(), LoginActivity.class));
         });
 
-        email.setText(UserDetails.getUser_email());
-        username.setText(UserDetails.getUser_name());
 
 
         // Inflate the layout for this fragment

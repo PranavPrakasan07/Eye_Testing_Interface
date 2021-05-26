@@ -3,11 +3,13 @@ package com.example.eyetestinginterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -15,11 +17,16 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+
+import org.jetbrains.annotations.NotNull;
 
 public class LoginActivity extends AppCompatActivity {
     EditText email, password;
@@ -101,6 +108,16 @@ public class LoginActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
+        login_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String email_text = email.getText().toString();
+                String password_text = password.getText().toString();
+
+                login_user(email_text, password_text);
+            }
+        });
+
         signup_link.setOnClickListener(v -> {
             Intent intent1 = new Intent(getApplicationContext(), SignUpActivity.class);
 
@@ -116,6 +133,21 @@ public class LoginActivity extends AppCompatActivity {
 
             startActivity(intent1);
         });
+    }
+
+    private void login_user(String email_text, String password_text) {
+        auth.signInWithEmailAndPassword(email_text, password_text).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull @NotNull Task<AuthResult> task) {
+
+                if(task.isSuccessful()) {
+                    Toast.makeText(LoginActivity.this, "Successfully logged in", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(LoginActivity.this, "Login failed!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
     }
 
     private void signIn() {
