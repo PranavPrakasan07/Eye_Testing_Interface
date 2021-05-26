@@ -57,7 +57,7 @@ dependencies {
     // Also declare the dependency for the Google Play services library and specify its version
     implementation 'com.google.android.gms:play-services-auth:19.0.0'
 
-    implementation 'nl.psdcompany:duo-navigation-drawer:3.0.0'
+//    implementation 'nl.psdcompany:duo-navigation-drawer:3.0.0'
 
     implementation 'com.ismaeldivita.chipnavigation:chip-navigation-bar:1.3.4'
 
@@ -68,6 +68,6 @@ dependencies {
 
     implementation 'com.google.android.gms:play-services-location:18.0.0'
 
-    implementation 'com.github.Chrisvin:RubberPicker:v1.5'
+//    implementation 'com.github.Chrisvin:RubberPicker:v1.5'
     implementation 'com.ramotion.fluidslider:fluid-slider:0.3.1'
 }
