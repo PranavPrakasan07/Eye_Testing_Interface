@@ -31,12 +31,12 @@
         android:layout_marginTop="64dp"
         android:layout_marginEnd="32dp"
         android:hint="Mobile Number"
-        app:boxStrokeErrorColor="@color/text_color"
         android:textColorHint="@color/hint_text_color"
         app:boxStrokeColor="@color/error"
+        app:boxStrokeErrorColor="@color/text_color"
         app:endIconMode="clear_text"
-        app:errorEnabled="false"
         app:endIconTint="@color/hint_text_color"
+        app:errorEnabled="false"
         app:hintTextColor="@color/hint_text_color">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -60,13 +60,13 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
-        app:errorEnabled="false"
-        app:boxStrokeErrorColor="@color/error"
         android:hint="Current Address"
         android:textColorHint="@color/hint_text_color"
         app:boxStrokeColor="@color/text_color"
+        app:boxStrokeErrorColor="@color/error"
         app:endIconMode="clear_text"
         app:endIconTint="@color/hint_text_color"
+        app:errorEnabled="false"
         app:hintTextColor="@color/hint_text_color">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -99,12 +99,12 @@
 
     <ProgressBar
         android:id="@+id/progressBar"
-        android:visibility="gone"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/continue_button"
-        android:layout_marginTop="64dp"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="64dp"
+        android:visibility="gone" />
 
 </RelativeLayout>

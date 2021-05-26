@@ -17,6 +17,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
@@ -37,6 +38,7 @@ public class MoreInfoActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("VERIFIED", MODE_PRIVATE);
 
         boolean isVerified = sharedPreferences.getBoolean("mobile_verified", false);
+        String mobile_number = sharedPreferences.getString("mobile_number", null);
 
         if (isVerified) {
             startActivity(new Intent(getApplicationContext(), Home.class));

@@ -1,6 +1,7 @@
 package com.example.eyetestinginterface;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -138,6 +139,15 @@ public class SignUpActivity extends AppCompatActivity {
                 user_details.put("userid", userid);
                 user_details.put("email", Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getEmail());
 
+                SharedPreferences sharedPreferences = getSharedPreferences("VERIFIED", MODE_PRIVATE);
+
+                boolean isVerified = sharedPreferences.getBoolean("mobile_verified", false);
+                String mobile_number = sharedPreferences.getString("mobile_number", null);
+
+                if (isVerified) {
+                    user_details.put("mobile", mobile_number);
+                }
+
                 assert userid != null;
                 db.collection("users").document(userid)
                         .set(user_details, SetOptions.merge())
@@ -172,6 +182,15 @@ public class SignUpActivity extends AppCompatActivity {
                         user_details.put("email", Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getEmail());
                         user_details.put("photo", String.valueOf(FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl()));
                         user_details.put("phone", Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getPhoneNumber());
+
+                        SharedPreferences sharedPreferences = getSharedPreferences("VERIFIED", MODE_PRIVATE);
+
+                        boolean isVerified = sharedPreferences.getBoolean("mobile_verified", false);
+                        String mobile_number = sharedPreferences.getString("mobile_number", null);
+
+                        if (isVerified) {
+                            user_details.put("mobile", mobile_number);
+                        }
 
                         assert userid != null;
                         db.collection("users").document(userid)

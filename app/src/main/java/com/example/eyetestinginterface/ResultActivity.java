@@ -1,15 +1,14 @@
 package com.example.eyetestinginterface;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Arrays;
 import java.util.Locale;
@@ -22,11 +21,10 @@ public class ResultActivity extends AppCompatActivity implements TextToSpeech.On
     String score_read = "";
     String score_speak = "";
 
-
     //TTS object
     private TextToSpeech myTTS;
     //status check code
-    private int MY_DATA_CHECK_CODE = 0;
+    private final int MY_DATA_CHECK_CODE = 0;
 
     //create the Activity
 

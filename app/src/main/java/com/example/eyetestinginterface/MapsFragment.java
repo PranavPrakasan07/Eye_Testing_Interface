@@ -23,7 +23,6 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -38,6 +37,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 public class MapsFragment extends Fragment {
 
@@ -49,7 +49,7 @@ public class MapsFragment extends Fragment {
 
     FloatingActionButton go_button;
 
-    private OnMapReadyCallback callback = new OnMapReadyCallback() {
+    private final OnMapReadyCallback callback = new OnMapReadyCallback() {
 
         /**
          * Manipulates the map once available.
@@ -65,19 +65,16 @@ public class MapsFragment extends Fragment {
 
             map = googleMap;
 
-            googleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
-                @Override
-                public void onMapClick(LatLng latLng) {
-                    MarkerOptions markerOptions = new MarkerOptions();
-                    markerOptions.position(latLng);
-                    markerOptions.title(latLng.latitude + " : " + latLng.longitude);
-                    googleMap.clear();
+            googleMap.setOnMapClickListener(latLng -> {
+                MarkerOptions markerOptions = new MarkerOptions();
+                markerOptions.position(latLng);
+                markerOptions.title(latLng.latitude + " : " + latLng.longitude);
+                googleMap.clear();
 
-                    googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(currentLat, currentLong), 10));
-                    Toast.makeText(getActivity(), currentLat + " : " + currentLong, Toast.LENGTH_SHORT).show();
+                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(currentLat, currentLong), 10));
+                Toast.makeText(getActivity(), currentLat + " : " + currentLong, Toast.LENGTH_SHORT).show();
 
-                    googleMap.addMarker(markerOptions);
-                }
+                googleMap.addMarker(markerOptions);
             });
         }
     };
@@ -97,51 +94,45 @@ public class MapsFragment extends Fragment {
             mapFragment.getMapAsync(callback);
         }
 
-        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getActivity());
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(requireActivity());
 
-        if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             getCurrentLocation();
         } else {
-            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 44);
+            ActivityCompat.requestPermissions(requireActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 44);
         }
 
-        go_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json" +
-                        "?location=" + currentLat + "," + currentLong + "&radius=5000" + "&type=hospital&sensor=true" + "&key=" + getResources().getString(R.string.google_maps_key);
+        go_button.setOnClickListener(v -> {
+            String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json" +
+                    "?location=" + currentLat + "," + currentLong + "&radius=5000" + "&type=hospital&sensor=true" + "&key=" + getResources().getString(R.string.google_maps_key);
 
-                new PlaceTask().execute(url);
+            new PlaceTask().execute(url);
 
-            }
         });
 
         return view;
     }
 
     private void getCurrentLocation() {
-        if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
+        if (ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_COARSE_LOCATION);
+        }// TODO: Consider calling
+//    ActivityCompat#requestPermissions
+// here to request the missing permissions, and then overriding
 //               public void onRequestPermissionsResult(int requestCode, String[] permissions,
 //                                                      int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-        }
+// to handle the case where the user grants the permission. See the documentation
+// for ActivityCompat#requestPermissions for more details.
 
         Task<Location> task = fusedLocationProviderClient.getLastLocation();
-        task.addOnSuccessListener(new OnSuccessListener<Location>() {
-            @Override
-            public void onSuccess(Location location) {
-                if (location != null) {
-                    currentLat = location.getLatitude();
-                    currentLong = location.getLongitude();
+        task.addOnSuccessListener(location -> {
+            if (location != null) {
+                currentLat = location.getLatitude();
+                currentLong = location.getLongitude();
 
-                    Toast.makeText(getActivity(), currentLat + " : " + currentLong, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), currentLat + " : " + currentLong, Toast.LENGTH_SHORT).show();
 
-                    mapFragment.getMapAsync(callback);
-                }
+                mapFragment.getMapAsync(callback);
             }
         });
     }
@@ -237,8 +228,8 @@ public class MapsFragment extends Fragment {
             for (int i = 0; i < hashMaps.size(); i++) {
                 HashMap<String, String> hashMapList = hashMaps.get(i);
 
-                double lat = Double.parseDouble(hashMapList.get("lat"));
-                double lng = Double.parseDouble(hashMapList.get("lng"));
+                double lat = Double.parseDouble(Objects.requireNonNull(hashMapList.get("lat")));
+                double lng = Double.parseDouble(Objects.requireNonNull(hashMapList.get("lng")));
 
                 String name = hashMapList.get("name");
 

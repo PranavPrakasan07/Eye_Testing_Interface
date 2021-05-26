@@ -8,8 +8,6 @@
     android:background="@color/background_color"
     tools:context=".ProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-
     <ImageView
         android:id="@+id/profile_photo"
         android:layout_width="100dp"
@@ -49,8 +47,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
             android:layout_marginStart="32dp"
+            android:layout_marginTop="64dp"
             android:layout_marginEnd="32dp"
             android:orientation="vertical">
 

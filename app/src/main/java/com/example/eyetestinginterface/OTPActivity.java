@@ -90,17 +90,17 @@ public class OTPActivity extends AppCompatActivity {
                                 user_details.put("address", address);
                                 user_details.put("mobile", mobile);
 
+
+
                                 db.collection("users").document(userid)
                                         .set(user_details, SetOptions.merge())
                                         .addOnSuccessListener(unused -> {
                                             Log.d("TAG", "Added successfully");
                                             SharedPreferences sharedPreferences = getSharedPreferences("VERIFIED", MODE_PRIVATE);
                                             sharedPreferences.edit().putBoolean("mobile_verified", true).apply();
+                                            sharedPreferences.edit().putString("mobile_number", mobile).apply();
                                         })
                                         .addOnFailureListener(e -> Log.d("TAG", "Add failed!"));
-
-                                SharedPreferences sharedPreferences = getSharedPreferences("VERIFIED", MODE_PRIVATE);
-                                sharedPreferences.edit().putBoolean("mobile_verified", true).apply();
 
                                 Intent intent = new Intent(getApplicationContext(), Home.class);
                                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
