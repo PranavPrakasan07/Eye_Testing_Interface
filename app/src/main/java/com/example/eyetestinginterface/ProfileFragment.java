@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,10 +16,12 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Source;
 import com.squareup.picasso.Picasso;
 
-import java.util.Objects;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -32,16 +35,20 @@ public class ProfileFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    TextView logout, username, email;
+    TextView username, email, contact, current_address;
     ImageView profile_photo;
 
     LinearLayout animation_layout;
     ScrollView profile_layout;
     RelativeLayout profile_fragment;
+
+    String email_text = null;
+    String phone_text = null;
+    String address_text = null;
+    String mobile_text = null;
+    String photo_url = null;
+
+    Map<String, Object> details = new HashMap<>();
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -69,8 +76,9 @@ public class ProfileFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            // TODO: Rename and change types of parameters
+            String mParam1 = getArguments().getString(ARG_PARAM1);
+            String mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
 
@@ -83,30 +91,67 @@ public class ProfileFragment extends Fragment {
 
         username = view.findViewById(R.id.user_name);
         email = view.findViewById(R.id.email);
-        profile_photo = view.findViewById(R.id.profile_photo);
+        contact = view.findViewById(R.id.contact);
+        current_address = view.findViewById(R.id.current_address);
 
+        profile_photo = view.findViewById(R.id.profile_photo);
         profile_layout = view.findViewById(R.id.profile_layout);
         animation_layout = view.findViewById(R.id.animation_layout);
-
         profile_fragment = view.findViewById(R.id.profile_fragment);
-
-//        username.setText(Objects.requireNonNull(LoginActivity.auth.getCurrentUser()).getDisplayName());
-//        email.setText(LoginActivity.auth.getCurrentUser().getEmail());
 
         profile_photo.setClipToOutline(true);
 
-        try {
-            Picasso.get().load(Objects.requireNonNull(LoginActivity.auth.getCurrentUser()).getPhotoUrl())
-                    .into(profile_photo);
-        } catch (Exception e) {
-            e.printStackTrace();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        Source source = Source.DEFAULT;
+
+        db.collection("users").document(Home.userid)
+                .get(source)
+                .addOnSuccessListener(documentSnapshot -> {
+                    details = documentSnapshot.getData();
+
+                    assert details != null;
+                    email_text = (String) details.get("email");
+                    phone_text = (String) details.get("phone");
+                    address_text = (String) details.get("address");
+                    photo_url = (String) details.get("photo");
+                    mobile_text = (String) details.get("mobile");
+
+                    if (email_text != null) {
+                        email.setText(email_text);
+                    }
+                    if (phone_text != null) {
+                        contact.setText(phone_text);
+                    }
+                    if (mobile_text != null) {
+                        contact.setText(mobile_text);
+                    }
+                    if (address_text != null) {
+                        current_address.setText(address_text);
+                    }
+                    if (photo_url != null) {
+                        Picasso.get().load(photo_url).into(profile_photo);
+                    }
+                }).addOnFailureListener(e -> Log.d("TAG", "Failed to read user data"));
+
+        if (email_text != null) {
+            email.setText(email_text);
+        }
+        if (phone_text != null) {
+            contact.setText(email_text);
+        }
+        if (mobile_text != null) {
+            contact.setText(email_text);
+        }
+        if (address_text != null) {
+            current_address.setText(email_text);
+        }
+        if (photo_url != null) {
+            Picasso.get().load(photo_url).into(profile_photo);
         }
 
-        email.setText(Objects.requireNonNull(LoginActivity.auth.getCurrentUser().getEmail()));
-        username.setText(LoginActivity.auth.getCurrentUser().getDisplayName());
-
-        profile_photo.setOnClickListener(v -> {
-
+        profile_photo.setOnClickListener(v ->
+        {
             profile_fragment.setBackgroundColor(Color.parseColor("#121212"));
 
             profile_layout.setVisibility(View.GONE);
@@ -114,21 +159,8 @@ public class ProfileFragment extends Fragment {
 
             animation_layout.setVisibility(View.VISIBLE);
 
-            Handler handler = new Handler();
-
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    startActivity(new Intent(getContext(), LoginActivity.class));
-                }
-            }, 2000);
-
-//                LoginActivity.auth.signOut();
-//                Toast.makeText(getActivity(), "Clicked", Toast.LENGTH_SHORT).show();
-//                startActivity(new Intent(getContext(), LoginActivity.class));
+            new Handler().postDelayed(() -> startActivity(new Intent(getContext(), LoginActivity.class)), 2000);
         });
-
-
 
         // Inflate the layout for this fragment
         return view;

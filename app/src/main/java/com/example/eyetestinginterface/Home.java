@@ -11,9 +11,17 @@ public class Home extends AppCompatActivity {
 
     ChipNavigationBar chipNavigationBar;
 
+    public static String userid = null;
+
     @Override
     protected void onStart() {
         super.onStart();
+
+        if (LoginActivity.userid != null) {
+            userid = LoginActivity.userid;
+        } else {
+            userid = SignUpActivity.userid;
+        }
     }
 
     @Override
