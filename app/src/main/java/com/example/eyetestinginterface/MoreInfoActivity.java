@@ -1,6 +1,7 @@
 package com.example.eyetestinginterface;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,16 +29,20 @@ public class MoreInfoActivity extends AppCompatActivity {
     private String mobile, address;
     TextView header;
     ProgressBar progressBar;
-//
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//        FirebaseUser currentUser = LoginActivity.auth.getCurrentUser();
-//
-//        if (currentUser != null) {
-//            startActivity(new Intent(getApplicationContext(), Home.class));
-//        }
-//    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        SharedPreferences sharedPreferences = getSharedPreferences("VERIFIED", MODE_PRIVATE);
+
+        boolean isVerified = sharedPreferences.getBoolean("mobile_verified", false);
+
+        if (isVerified) {
+            startActivity(new Intent(getApplicationContext(), Home.class));
+        }
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,6 +106,8 @@ public class MoreInfoActivity extends AppCompatActivity {
                                 Intent intent = new Intent(getApplicationContext(), OTPActivity.class);
                                 intent.putExtra("phone", mobile);
                                 intent.putExtra("otp", s);
+                                intent.putExtra("address", address);
+
                                 startActivity(intent);
                             }
                         });

@@ -95,8 +95,12 @@ public class ProfileFragment extends Fragment {
 
         profile_photo.setClipToOutline(true);
 
-        Picasso.get().load(Objects.requireNonNull(LoginActivity.auth.getCurrentUser()).getPhotoUrl())
-                .into(profile_photo);
+        try {
+            Picasso.get().load(Objects.requireNonNull(LoginActivity.auth.getCurrentUser()).getPhotoUrl())
+                    .into(profile_photo);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         email.setText(Objects.requireNonNull(LoginActivity.auth.getCurrentUser().getEmail()));
         username.setText(LoginActivity.auth.getCurrentUser().getDisplayName());
