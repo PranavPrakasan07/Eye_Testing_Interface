@@ -103,7 +103,7 @@ public class ProfileFragment extends Fragment {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        Source source = Source.DEFAULT;
+        Source source = Source.CACHE;
 
         db.collection("users").document(Home.userid)
                 .get(source)
@@ -131,24 +131,10 @@ public class ProfileFragment extends Fragment {
                     }
                     if (photo_url != null) {
                         Picasso.get().load(photo_url).into(profile_photo);
+                    }else{
+                        Picasso.get().load(photo_url).into(profile_photo);
                     }
                 }).addOnFailureListener(e -> Log.d("TAG", "Failed to read user data"));
-
-        if (email_text != null) {
-            email.setText(email_text);
-        }
-        if (phone_text != null) {
-            contact.setText(email_text);
-        }
-        if (mobile_text != null) {
-            contact.setText(email_text);
-        }
-        if (address_text != null) {
-            current_address.setText(email_text);
-        }
-        if (photo_url != null) {
-            Picasso.get().load(photo_url).into(profile_photo);
-        }
 
         profile_photo.setOnClickListener(v ->
         {

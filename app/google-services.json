@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "615101136448",
+    "project_id": "eye-testing-interface",
+    "storage_bucket": "eye-testing-interface.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:615101136448:android:a6da2187067cf44e6269a5",
+        "android_client_info": {
+          "package_name": "com.example.eyetestinginterface"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "615101136448-psimt3j2m0cdui9qtfbajruqtvm7e446.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.eyetestinginterface",
+            "certificate_hash": "9127bd95357bd9fe471cdcfe7672fdaa42dae906"
+          }
+        },
+        {
+          "client_id": "615101136448-g42f6itdh3dl799tmbpj9bnjed08hull.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_cm3F3n8eb7CrKb4kiqa3lq40b32gffg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "615101136448-g42f6itdh3dl799tmbpj9bnjed08hull.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

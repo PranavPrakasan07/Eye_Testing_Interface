@@ -1,12 +1,16 @@
 package com.example.eyetestinginterface;
 
 import androidx.test.core.app.ActivityScenario;
+import androidx.test.espresso.ViewInteraction;
+import androidx.test.ext.junit.rules.ActivityScenarioRule;
 
+import org.junit.Rule;
 import org.junit.Test;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.Espresso.pressBack;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
@@ -14,10 +18,13 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
 public class LoginActivityTest {
 
+    @Rule
+    public ActivityScenarioRule<LoginActivity> activityRule = new ActivityScenarioRule<>(LoginActivity.class);
+
     @Test
     public void test_isActivityDisplay(){
 
-        ActivityScenario<LoginActivity> activityScenario = ActivityScenario.launch(LoginActivity.class);
+//        ActivityScenario<LoginActivity> activityScenario = ActivityScenario.launch(LoginActivity.class);
 
         onView(withId(R.id.login_page))            // withId(R.id.my_view) is a ViewMatcher
                 .check(matches(isDisplayed())); // matches(isDisplayed()) is a ViewAssertion
@@ -71,6 +78,20 @@ public class LoginActivityTest {
 
         onView(withId(R.id.login_page)).check(matches(isDisplayed()));
 
+    }
+
+    @Test
+    public void test_loginWithPassword(){
+
+        ActivityScenario<LoginActivity> activityActivityScenario = ActivityScenario.launch(LoginActivity.class);
+
+        onView(withId(R.id.email)).perform(typeText("tester.app@gmail.com"));
+
+        onView(withId(R.id.password)).perform(typeText("123456"));
+
+        onView(withId(R.id.login_button)).perform(click());
+
+//        onView(withId(R.id.more_info_page)).check(matches(isDisplayed()));
     }
 
 }

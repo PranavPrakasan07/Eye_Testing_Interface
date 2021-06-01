@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="128dp"
-        android:fontFamily="@font/open_sans_semibold"
+        android:fontFamily="@font/poppins_medium"
         android:text="Sign Up"
         android:textColor="@color/text_color"
         android:textSize="36sp"
@@ -46,6 +46,7 @@
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
             android:textColor="@color/text_color"
+            android:textColorHint="@color/hint_text_color"
             android:textColorHighlight="@color/highlight"
             android:textSize="16sp" />
 
@@ -79,6 +80,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:textColor="@color/text_color"
+            android:textColorHint="@color/hint_text_color"
             android:textColorHighlight="@color/highlight"
             android:textSize="16sp" />
 
@@ -96,6 +98,7 @@
         android:layout_marginEnd="32dp"
         android:hint="Contact"
         app:boxStrokeColor="#00223A"
+        android:textColorHint="@color/hint_text_color"
         app:endIconMode="clear_text"
         app:endIconTint="@color/hint_text_color"
         app:hintTextColor="@color/hint_text_color"
@@ -108,6 +111,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
+            android:textColorHint="@color/hint_text_color"
             android:textColor="@color/text_color"
             android:textColorHighlight="@color/highlight"
             android:textSize="16sp" />
