@@ -1,0 +1,28 @@
+Package Name :  com.example.eyetestinginterface
+
+adb shell dumpsys gfxinfo com.example.eyetestinginterface
+
+adb shell dumpsys gfxinfo com.example.eyetestinginterface framestats
+
+adb shell dumpsys gfxinfo com.example.eyetestinginterface reset
+
+F:\App Crawler\app-crawler
+java -jar crawl_launcher.jar --apk-file F:\FlutterDemoApp\EyeTestingInterface\app\build\outputs\apk\debug\app-debug.apk --android-sdk C:\Users\Pranav Prakasan\AppData\Local\Android\Sdk
+
+java -jar crawl_launcher.jar F:\App Crawler\app-crawler --apk-file F:\FlutterDemoApp\EyeTestingInterface\app\build\outputs\apk\debug\app-debug.apk --android-sdk C:\Users\Pranav Prakasan\AppData\Local\Android\Sdk
+
+## Battery
+
+adb shell dumpsys battery unplug
+
+adb shell dumpsys battery reset
+
+adb shell am set-standby-bucket com.example.eyetestinginterface active
+
+adb shell am get-standby-bucket com.example.eyetestinginterface
+
+adb shell am set-standby-bucket com.example.eyetestinginterface 40
+
+adb shell am set-inactive com.example.eyetestinginterface true
+
+adb shell settings put global low_power 1

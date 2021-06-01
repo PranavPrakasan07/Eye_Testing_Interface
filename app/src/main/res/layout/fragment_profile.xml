@@ -18,7 +18,7 @@
         android:background="@drawable/round_bg"
         android:outlineProvider="background"
         android:scaleType="fitCenter"
-        tools:src="@tools:sample/avatars" />
+        tools:src="@drawable/ic_baseline_person" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/user_name"

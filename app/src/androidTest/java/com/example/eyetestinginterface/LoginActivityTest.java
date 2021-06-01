@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.Espresso.pressBack;
+import static androidx.test.espresso.action.ViewActions.clearText;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
@@ -86,7 +87,11 @@ public class LoginActivityTest {
         ActivityScenario<LoginActivity> activityActivityScenario = ActivityScenario.launch(LoginActivity.class);
 
         onView(withId(R.id.email)).perform(typeText("tester.app@gmail.com"));
+        onView(withId(R.id.email)).perform(clearText());
+        onView(withId(R.id.email)).perform(typeText("tester.app@gmail.com"));
 
+        onView(withId(R.id.password)).perform(typeText("123456"));
+        onView(withId(R.id.password)).perform(clearText());
         onView(withId(R.id.password)).perform(typeText("123456"));
 
         onView(withId(R.id.login_button)).perform(click());

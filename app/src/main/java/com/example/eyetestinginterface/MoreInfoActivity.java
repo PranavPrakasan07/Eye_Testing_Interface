@@ -59,10 +59,13 @@ public class MoreInfoActivity extends AppCompatActivity {
         mobile_layout = findViewById(R.id.filled_mobile);
         address_layout = findViewById(R.id.filled_address);
 
+//        continue_button.setFocusable(true);
+
         progressBar = findViewById(R.id.progressBar);
 
         header.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Home.class)));
-
+        mobile_layout.setErrorEnabled(false);
+        address_layout.setErrorEnabled(false);
         continue_button.setOnClickListener(v -> {
 
             progressBar.setVisibility(View.VISIBLE);
@@ -73,15 +76,14 @@ public class MoreInfoActivity extends AppCompatActivity {
             mobile = Objects.requireNonNull(mobile_number.getText()).toString();
             address = Objects.requireNonNull(current_address.getText()).toString();
 
-
             if (mobile.equals("")) {
-                mobile_layout.setErrorEnabled(true);
                 mobile_layout.setErrorContentDescription("Enter your mobile number");
+            } else {
+                mobile_layout.setErrorContentDescription("");
             }
 
-            if (address.equals("")) {
-                address_layout.setErrorEnabled(true);
-            }
+            mobile_layout.setErrorEnabled(address.equals(""));
+            address_layout.setErrorEnabled(address.equals(""));
 
             if (!(mobile.equals("") || address.equals(""))) {
 
