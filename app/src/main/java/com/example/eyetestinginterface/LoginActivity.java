@@ -122,7 +122,16 @@ public class LoginActivity extends AppCompatActivity {
             String email_text = email.getText().toString();
             String password_text = password.getText().toString();
 
-            login_user(email_text, password_text);
+            if (email_text.equals("")) {
+                Toast.makeText(this, "Enter your email", Toast.LENGTH_SHORT).show();
+            }
+            if (password_text.equals("")) {
+                Toast.makeText(this, "Enter your password", Toast.LENGTH_SHORT).show();
+            }
+            if (!(email_text.equals("") || password_text.equals(""))) {
+                login_user(email_text, password_text);
+            }
+
         });
 
         signup_link.setOnClickListener(v -> {

@@ -65,7 +65,7 @@ public class TestEvaluate extends AppCompatActivity {
         Bundle bundle = intent.getExtras();
         String distance = bundle.getString("distance");
 
-        Toast.makeText(this, distance, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, distance, Toast.LENGTH_SHORT).show();
 
         question_text = findViewById(R.id.text);
         speech_to_text = findViewById(R.id.speech_to_text);

@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="64dp"
-        android:fontFamily="@font/open_sans_semibold"
+        android:fontFamily="@font/poppins_semibold"
         android:text="Set Distance"
         android:textColor="@color/text_color"
         android:textSize="36sp" />
@@ -64,6 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="64dp"
+        android:fontFamily="@font/poppins_medium"
         android:text="20"
         android:textColor="@color/text_color"
         android:textSize="36sp" />
@@ -82,7 +83,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:fontFamily="@font/open_sans_semibold"
+        android:fontFamily="@font/poppins_medium"
         android:paddingStart="16dp"
         android:paddingTop="8dp"
         android:paddingEnd="16dp"

@@ -10,7 +10,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.Arrays;
 import java.util.Locale;
 
 /**
@@ -69,7 +68,7 @@ public class ResultActivity extends AppCompatActivity implements TextToSpeech.On
             e.printStackTrace();
         }
 
-        Toast.makeText(this, Arrays.toString(TestFragment.distance), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, Arrays.toString(TestFragment.distance), Toast.LENGTH_SHORT).show();
 
         retry_button.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), Home.class);

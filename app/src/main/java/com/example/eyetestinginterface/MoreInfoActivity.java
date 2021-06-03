@@ -69,8 +69,10 @@ public class MoreInfoActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
 
         header.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Home.class)));
+
         mobile_layout.setErrorEnabled(false);
         address_layout.setErrorEnabled(false);
+
         continue_button.setOnClickListener(v -> {
 
             progressBar.setVisibility(View.VISIBLE);

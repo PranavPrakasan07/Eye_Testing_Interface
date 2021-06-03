@@ -113,8 +113,22 @@ public class SignUpActivity extends AppCompatActivity {
 
             String email_text = email.getText().toString();
             String password_text = password.getText().toString();
+            String contact_text = contact.getText().toString();
 
-            signup(email_text, password_text);
+            if (email_text.equals("")) {
+                Toast.makeText(this, "Enter your email", Toast.LENGTH_SHORT).show();
+            }
+            if (password_text.equals("")) {
+                Toast.makeText(this, "Enter your password", Toast.LENGTH_SHORT).show();
+            }
+            if (contact_text.equals("")) {
+                Toast.makeText(this, "Enter your mobile number", Toast.LENGTH_SHORT).show();
+            }
+
+            if (!(email_text.equals("") || password_text.equals("") || contact_text.equals(""))) {
+                signup(email_text, password_text);
+            }
+
         });
 
         login_link.setOnClickListener(v -> {
@@ -208,7 +222,7 @@ public class SignUpActivity extends AppCompatActivity {
                     } else {
                         // If sign in fails, display a message to the user.
                         Log.w("TAG", "signInWithCredential:failure", task.getException());
-                        Toast.makeText(getApplicationContext(), "Invalid Login", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Invalid Sign in", Toast.LENGTH_SHORT).show();
 
                     }
                 });
