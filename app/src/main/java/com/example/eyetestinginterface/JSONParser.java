@@ -1,5 +1,7 @@
 package com.example.eyetestinginterface;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -7,6 +9,10 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+/**
+ * {@link JSONParser} class for parsing data regarding user location
+ */
 
 public class JSONParser {
 

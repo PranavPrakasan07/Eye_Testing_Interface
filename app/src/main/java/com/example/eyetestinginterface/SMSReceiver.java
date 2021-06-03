@@ -5,9 +5,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.auth.api.phone.SmsRetriever;
 import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.common.api.Status;
+
+/**
+ * A simple {@link BroadcastReceiver} subclass.
+ * {@link SMSReceiver} to receive OTP messages
+ */
 
 public class SMSReceiver extends BroadcastReceiver {
 

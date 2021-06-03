@@ -6,6 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+/**
+ * A simple {@link AppCompatActivity} subclass.
+ * {@link SplashScreen} Activity for the initial loading animation
+ */
+
 public class SplashScreen extends AppCompatActivity {
 
     @Override

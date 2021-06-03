@@ -7,6 +7,11 @@ import androidx.fragment.app.Fragment;
 
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
+/**
+ * A simple {@link AppCompatActivity} subclass.
+ * {@link Home} Activity which holds the navbar, for navigation between otheer fragments
+ */
+
 public class Home extends AppCompatActivity {
 
     ChipNavigationBar chipNavigationBar;

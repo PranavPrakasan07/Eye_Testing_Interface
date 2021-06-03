@@ -1,5 +1,9 @@
 package com.example.eyetestinginterface;
 
+/**
+ * {@link UserDetails} class temporarily holds user data
+ */
+
 public class UserDetails {
 
     static String user_name;

@@ -27,6 +27,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * A simple {@link AppCompatActivity} subclass.
+ * {@link SignUpActivity} Activity for users to signup and create their account
+ */
+
 public class SignUpActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 1;
     GoogleSignInClient mGoogleSignInClient;

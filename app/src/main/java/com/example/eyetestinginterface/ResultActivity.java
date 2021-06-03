@@ -13,6 +13,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.Arrays;
 import java.util.Locale;
 
+/**
+ * A simple {@link AppCompatActivity} subclass.
+ * {@link ResultActivity} Activity for users to check their results of the Visual Acuity Test
+ */
+
 public class ResultActivity extends AppCompatActivity implements TextToSpeech.OnInitListener {
 
     ImageView retry_button, finish_button, speak_button;

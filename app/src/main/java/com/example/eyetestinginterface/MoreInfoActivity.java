@@ -22,6 +22,11 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * A simple {@link AppCompatActivity} subclass.
+ * {@link MoreInfoActivity} Activity prompting the user for the contact details
+ */
+
 public class MoreInfoActivity extends AppCompatActivity {
 
     Button continue_button;

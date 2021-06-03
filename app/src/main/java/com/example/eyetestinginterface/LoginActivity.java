@@ -27,6 +27,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * A simple {@link AppCompatActivity} subclass.
+ * {@link LoginActivity} Activity for users to login into their account
+ */
+
 public class LoginActivity extends AppCompatActivity {
     EditText email, password;
     TextView signup_link;

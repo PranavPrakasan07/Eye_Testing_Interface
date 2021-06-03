@@ -24,6 +24,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * A simple {@link AppCompatActivity} subclass.
+ * {@link OTPActivity} Activity to receive and verify the device
+ */
+
 public class OTPActivity extends AppCompatActivity {
 
     TextView verify_button;

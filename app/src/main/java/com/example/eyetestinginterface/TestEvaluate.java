@@ -24,6 +24,11 @@ import androidx.core.content.ContextCompat;
 import java.util.ArrayList;
 import java.util.Locale;
 
+/**
+ * A simple {@link AppCompatActivity} subclass.
+ * {@link TestEvaluate} Activity to take the Visual Acuity test
+ */
+
 public class TestEvaluate extends AppCompatActivity {
 
     private final int RecordAudioRequestCode = 1;
