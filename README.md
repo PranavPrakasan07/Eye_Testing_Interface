@@ -20,14 +20,8 @@ App to provide an eye-testing setup
 
 </br>
 </br>
-<p>
-<img src="https://github.com/PranavPrakasan07/Eye_Testing_Interface/blob/master/mockup1.png" align="right" width="200"/>
-</p>
-</br>
-<p>
-<img src="https://github.com/PranavPrakasan07/Eye_Testing_Interface/blob/master/mockup2.png" align="left" width="200"/>
-</p>
-</br>
 
-<img src="https://github.com/PranavPrakasan07/Eye_Testing_Interface/blob/master/mockup3.png" align="right" width="200"/></br>
-<img src="https://github.com/PranavPrakasan07/Eye_Testing_Interface/blob/master/mockup4.png" align="left" width="200"/></br>
+<img src="https://github.com/PranavPrakasan07/Eye_Testing_Interface/blob/master/page1.png" align="right" width="100%"/></br>
+<img src="https://github.com/PranavPrakasan07/Eye_Testing_Interface/blob/master/MacBook%20-%204.png" align="left" width="100%"/></br>
+<img src="https://github.com/PranavPrakasan07/Eye_Testing_Interface/blob/master/MacBook%20-%203.png" align="right" width="100%"/></br>
+<img src="https://github.com/PranavPrakasan07/Eye_Testing_Interface/blob/master/MacBook%20-%202.png" align="left" width="100%"/></br>
