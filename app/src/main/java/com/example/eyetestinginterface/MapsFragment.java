@@ -72,7 +72,7 @@ public class MapsFragment extends Fragment {
                 googleMap.clear();
 
                 googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(currentLat, currentLong), 10));
-                Toast.makeText(getActivity(), currentLat + " : " + currentLong, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getActivity(), currentLat + " : " + currentLong, Toast.LENGTH_SHORT).show();
 
                 googleMap.addMarker(markerOptions);
             });

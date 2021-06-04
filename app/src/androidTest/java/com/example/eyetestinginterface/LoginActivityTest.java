@@ -31,8 +31,6 @@ public class LoginActivityTest {
     @Test
     public void test_isActivityDisplay(){
 
-//        ActivityScenario<LoginActivity> activityScenario = ActivityScenario.launch(LoginActivity.class);
-
         onView(withId(R.id.login_page))            // withId(R.id.my_view) is a ViewMatcher
                 .check(matches(isDisplayed())); // matches(isDisplayed()) is a ViewAssertion
     }
@@ -53,7 +51,6 @@ public class LoginActivityTest {
 
         onView(withId(R.id.login_button))            // withId(R.id.my_view) is a ViewMatcher
                 .check(matches(isDisplayed())); // matches(isDisplayed()) is a ViewAssertion
-//                        .perform((ViewAction) isClickable());               // click() is a ViewAction
     }
 
     @Test
@@ -66,9 +63,6 @@ public class LoginActivityTest {
 
         onView(withId(R.id.materialTextView))            // withId(R.id.my_view) is a ViewMatcher
                 .check(matches(withText("Login")));
-
-//        onView(withId(R.id.signup_link))            // withId(R.id.my_view) is a ViewMatcher
-//                .check(matches(withText("Signup")));
     }
 
 
@@ -84,7 +78,6 @@ public class LoginActivityTest {
         pressBack();
 
         onView(withId(R.id.login_page)).check(matches(isDisplayed()));
-
     }
 
     @Test
@@ -101,8 +94,6 @@ public class LoginActivityTest {
         onView(withId(R.id.password)).perform(typeText("123456"));
 
         onView(withId(R.id.login_button)).perform(click());
-
-//        onView(withId(R.id.more_info_page)).check(matches(isDisplayed()));
     }
 
 }
